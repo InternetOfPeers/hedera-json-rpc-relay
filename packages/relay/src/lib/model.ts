@@ -25,27 +25,27 @@ export class Block {
   public readonly timestamp: string = '0x' + new Date().valueOf().toString(16);
   public number!: string;
   public hash!: string;
-
-  public readonly difficulty: string = '0x1';
-  public readonly extraData: string = '';
+  public readonly difficulty: string = '0x0';
+  public readonly extraData: string = '0x';
   public readonly gasLimit: string = '0xe4e1c0';
-  public readonly baseFeePerGas: string = '0xa54f4c3c00';
+  public readonly baseFeePerGas: string = '0x0';
   public readonly gasUsed: string = '0x0';
-  public readonly logsBloom: string = '0x0';
-  public readonly miner: string = '';
+  public readonly logsBloom: string =
+    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000';
+  public readonly miner: string = '0x0000000000000000000000000000000000000000';
   public readonly mixHash: string = '0x0000000000000000000000000000000000000000000000000000000000000000';
   public readonly nonce: string = '0x0000000000000000';
   public parentHash!: string;
-  public readonly receiptsRoot: string = '0x0';
-  public readonly sha3Uncles: string = '0x0';
+  public readonly receiptsRoot: string = '0x0000000000000000000000000000000000000000000000000000000000000000';
+  public readonly sha3Uncles: string = '0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347';
   public readonly size: string = '0x0';
-  public readonly stateRoot: string = '0x0';
-  public readonly totalDifficulty: string = '0x1';
+  public readonly stateRoot: string = '0x0000000000000000000000000000000000000000000000000000000000000000';
+  public readonly totalDifficulty: string = '0x0';
   public readonly transactions: string[] | Transaction[] = [];
-  public readonly transactionsRoot: string = '0x0';
+  public readonly transactionsRoot: string = '0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421';
   public readonly uncles: string[] = [];
   public readonly withdrawals: string[] = [];
-  public readonly withdrawalsRoot: string = '0x0';
+  public readonly withdrawalsRoot: string = '0x0000000000000000000000000000000000000000000000000000000000000000';
 
   constructor(args?: any) {
     if (args) {
@@ -69,9 +69,9 @@ export class Block {
       this.totalDifficulty = args.totalDifficulty;
       this.transactions = args.transactions;
       this.transactionsRoot = args.transactionsRoot;
-      this.uncles = [];
-      this.withdrawals = [];
-      this.withdrawalsRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
+      this.uncles = args.uncles;
+      this.withdrawals = args.withdrawals;
+      this.withdrawalsRoot = args.withdrawalsRoot;
     }
   }
 
